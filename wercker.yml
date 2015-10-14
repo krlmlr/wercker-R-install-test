@@ -3,4 +3,4 @@ build:
   steps:
     - script:
         name: copy-rename
-        code: cd /usr/local/lib/R/site-library; cp -rv crayon crayon.new; rm -rv crayon; mv crayon.new crayon
+        code: cd /usr/local/lib/R/site-library; cp -rv crayon crayon.new; find crayon.new | xargs touch;  rm -rv crayon; mv crayon.new crayon
