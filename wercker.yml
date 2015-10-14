@@ -6,4 +6,4 @@ build:
         code: if ! Rscript -e 'install.packages("crayon")'; then fail "Install failed"; fi
     - script:
         name: clean
-        code: if ! rm -rf /usr/local/lib/R/site-library/crayon; then fail "Cleanup failed"; fi
+        code: if ! rm -rfv /usr/local/lib/R/site-library/crayon; then fail "Cleanup failed"; fi
