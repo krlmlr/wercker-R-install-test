@@ -2,14 +2,5 @@ box: krlmlr/r-test
 build:
   steps:
     - script:
-        name: list-before
-        code: if ! ls -lR /usr/local/lib/R/site-library; then fail "Listing failed"; fi
-    - script:
-        name: install
-        code: if ! Rscript -e 'install.packages("crayon")'; then fail "Install failed"; fi
-    - script:
-        name: clean
-        code: if ! rm -rfv /usr/local/lib/R/site-library/crayon; then fail "Cleanup failed"; fi
-    - script:
-        name: list-after
-        code: if ! ls -lR /usr/local/lib/R/site-library; then fail "Listing failed"; fi
+        name: copy-rename
+        code: cd /usr/local/lib/R/site-library; cp -rv crayon crayon.new; rm -rv crayon; mv crayon.new crayon
